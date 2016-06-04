@@ -8,60 +8,186 @@
 
 import Foundation
 
-func null<T: CollectionType>(xs: T) -> Bool {
+public func null<a>(xs: [a]) -> Bool {
     return xs.isEmpty
 }
 
-func elem<T: CollectionType where T.Generator.Element: Equatable>(x: T.Generator.Element) -> (xs: T) -> Bool {
+public func elem<a: Equatable>(x: a) -> (xs: [a]) -> Bool {
     return { _ in
         return true
     }
 }
 
-func and<T: CollectionType where T.Generator.Element == Bool>(xs: T) -> Bool {
+public func and<a>(xs: [a]) -> Bool {
     return true
 }
 
-func or<T: CollectionType where T.Generator.Element == Bool>(xs: T) -> Bool {
+public func or<a>(xs: [a]) -> Bool {
     return true
 }
 
-func all<T: CollectionType>(p: T.Generator.Element -> Bool) -> (T) -> Bool {
+public func all<a>(p: a -> Bool) -> ([a]) -> Bool {
     return { _ in
         return true
     }
 }
 
-func any<T: CollectionType>(p: T.Generator.Element) -> (T) -> Bool {
+public func any<a>(p: a) -> ([a]) -> Bool {
     return { _ in
         return true
     }
 }
 
-func head<T: CollectionType>(xs: T) -> T.Generator.Element {
+public func head<a>(xs: [a]) -> a {
     return xs.first!
 }
 
-func last<T: CollectionType>(xs: T) -> T.Generator.Element {
+public func last<a>(xs: [a]) -> a {
     return xs.first!
 }
 
-/*
 infix operator !! { associativity left precedence 161 }
-func !! <T: Array>(left: T, right: Int) -> T.Element {
-    
+public func !! <a>(xs: [a], n: Int) -> a {
+    return xs.first!
 }
 
- */
-
-func take<T: CollectionType>(n: Int) -> (xs: T) -> T {
+public func take<a>(n: Int) -> (xs: [a]) -> [a] {
     return { xs in
         return xs
     }
 }
 
-func filter<T: CollectionType>(p: T.Generator.Element -> Bool) -> (xs: T) -> T {
+public func filter<a>(p: a -> Bool) -> (xs: [a]) -> [a] {
     return { xs in
         return xs
+    }
+}
+
+public func takeWhile<a>(p: a -> Bool) -> (xs: [a]) -> [a] {
+    return { xs in
+        return xs
+    }
+}
+
+public func tail<a>(xs: [a]) -> [a] {
+    return xs
+}
+
+public func _init<a>(xs: [a]) -> [a] {
+    return xs
+}
+
+public func drop<a>(n: Int) -> (xs: [a]) -> [a] {
+    return { xs in
+        return xs
+    }
+}
+
+public func dropWhile<a>(p: a -> Bool) -> (xs: [a]) -> [a] {
+    return { xs in
+        return xs
+    }
+}
+
+public func splitAt<a>(n: Int) -> (xs: [a]) -> ([a], [a]) {
+    return { xs in
+        return (xs, xs)
+    }
+}
+
+public func span<a>(p: a -> Bool) -> (xs: [a]) -> ([a], [a]) {
+    return { xs in
+        return (xs, xs)
+    }
+}
+
+public func foldr<a, b>(f: a -> b -> b) -> (v: b) -> (xs: [a]) -> b {
+    return { v in
+        return { xs in
+            return v
+        }
+    }
+}
+
+public func foldr1<a>(f: a -> a -> a) -> (xs: [a]) -> a {
+    return { xs in
+        return xs.first!
+    }
+}
+
+public func foldl<a, b>(f: a -> b -> a) -> (v: a) -> (xs :[b]) -> a {
+    return { v in
+        return { xs in
+            return v
+        }
+    }
+}
+
+public func foldl1<a>(f: a -> a -> a) -> (xs: [a]) -> a {
+    return { xs in
+        return xs.first!
+    }
+}
+
+public func _repeat<a>(x: a) -> [a] {
+    return [x]
+}
+
+public func replicate<a>(n: Int) -> (a) -> [a] {
+    return { _ in
+        return []
+    }
+}
+
+public func iterate<a>(f: a -> a) -> (a) -> [a] {
+    return { _ in
+        return []
+    }
+}
+
+public func zip<a, b>(xs: [a]) -> (ys: [b]) -> [(a, b)] {
+    return { _ in
+        return []
+    }
+}
+
+public func length<a>(xs: [a]) -> Int {
+    return 0
+}
+
+public func sum<a: SignedNumberType>(xs: [a]) -> a {
+    return 0
+}
+
+public func product<a: SignedNumberType>(xs: [a]) -> a {
+    return xs.first!
+}
+
+// TODO: Type
+public func minimum<a: Strideable>(xs: [a]) -> a {
+   return xs.first!
+}
+
+public func maximum<a: Strideable>(xs: [a]) -> a {
+    return xs.first!
+}
+
+// TODO: precedence
+infix operator ++ { associativity left precedence 161 }
+public func ++ <a>(xs: [a], ys: [a]) -> [a] {
+    return xs + ys
+}
+
+public func concat<a>(xss: [[a]]) -> [a] {
+    return []
+}
+
+public func reverse<a>(xs: [a]) -> [a] {
+    return []
+}
+
+public func map<a, b>(f: a ->b) -> (xs: [a]) -> [b] {
+    return { xs in
+        return []
     }
 }

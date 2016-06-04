@@ -12,8 +12,8 @@ public func null<a>(xs: [a]) -> Bool {
     return xs.isEmpty
 }
 
-public func elem<a: Equatable>(x: a) -> (xs: [a]) -> Bool {
-    return { _ in
+public func elem<a: Equatable>(x: a) -> ([a]) -> Bool {
+    return { xs in
         return true
     }
 }
@@ -32,7 +32,7 @@ public func all<a>(p: a -> Bool) -> ([a]) -> Bool {
     }
 }
 
-public func any<a>(p: a) -> ([a]) -> Bool {
+public func any<a>(p: a -> Bool) -> ([a]) -> Bool {
     return { _ in
         return true
     }
@@ -51,19 +51,19 @@ public func !! <a>(xs: [a], n: Int) -> a {
     return xs.first!
 }
 
-public func take<a>(n: Int) -> (xs: [a]) -> [a] {
+public func take<a>(n: Int) -> ([a]) -> [a] {
     return { xs in
         return xs
     }
 }
 
-public func filter<a>(p: a -> Bool) -> (xs: [a]) -> [a] {
+public func filter<a>(p: a -> Bool) -> ([a]) -> [a] {
     return { xs in
         return xs
     }
 }
 
-public func takeWhile<a>(p: a -> Bool) -> (xs: [a]) -> [a] {
+public func takeWhile<a>(p: a -> Bool) -> ([a]) -> [a] {
     return { xs in
         return xs
     }
@@ -77,31 +77,31 @@ public func _init<a>(xs: [a]) -> [a] {
     return xs
 }
 
-public func drop<a>(n: Int) -> (xs: [a]) -> [a] {
+public func drop<a>(n: Int) -> ([a]) -> [a] {
     return { xs in
         return xs
     }
 }
 
-public func dropWhile<a>(p: a -> Bool) -> (xs: [a]) -> [a] {
+public func dropWhile<a>(p: a -> Bool) -> ([a]) -> [a] {
     return { xs in
         return xs
     }
 }
 
-public func splitAt<a>(n: Int) -> (xs: [a]) -> ([a], [a]) {
+public func splitAt<a>(n: Int) -> ([a]) -> ([a], [a]) {
     return { xs in
         return (xs, xs)
     }
 }
 
-public func span<a>(p: a -> Bool) -> (xs: [a]) -> ([a], [a]) {
+public func span<a>(p: a -> Bool) -> ([a]) -> ([a], [a]) {
     return { xs in
         return (xs, xs)
     }
 }
 
-public func foldr<a, b>(f: a -> b -> b) -> (v: b) -> (xs: [a]) -> b {
+public func foldr<a, b>(f: a -> b -> b) -> (b) -> ([a]) -> b {
     return { v in
         return { xs in
             return v
@@ -109,13 +109,13 @@ public func foldr<a, b>(f: a -> b -> b) -> (v: b) -> (xs: [a]) -> b {
     }
 }
 
-public func foldr1<a>(f: a -> a -> a) -> (xs: [a]) -> a {
+public func foldr1<a>(f: a -> a -> a) -> ([a]) -> a {
     return { xs in
         return xs.first!
     }
 }
 
-public func foldl<a, b>(f: a -> b -> a) -> (v: a) -> (xs :[b]) -> a {
+public func foldl<a, b>(f: a -> b -> a) -> (a) -> ([b]) -> a {
     return { v in
         return { xs in
             return v
@@ -123,7 +123,7 @@ public func foldl<a, b>(f: a -> b -> a) -> (v: a) -> (xs :[b]) -> a {
     }
 }
 
-public func foldl1<a>(f: a -> a -> a) -> (xs: [a]) -> a {
+public func foldl1<a>(f: a -> a -> a) -> ([a]) -> a {
     return { xs in
         return xs.first!
     }
@@ -145,8 +145,8 @@ public func iterate<a>(f: a -> a) -> (a) -> [a] {
     }
 }
 
-public func zip<a, b>(xs: [a]) -> (ys: [b]) -> [(a, b)] {
-    return { _ in
+public func zip<a, b>(xs: [a]) -> ([b]) -> [(a, b)] {
+    return { ys in
         return []
     }
 }
@@ -186,7 +186,7 @@ public func reverse<a>(xs: [a]) -> [a] {
     return []
 }
 
-public func map<a, b>(f: a ->b) -> (xs: [a]) -> [b] {
+public func map<a, b>(f: a ->b) -> ([a]) -> [b] {
     return { xs in
         return []
     }

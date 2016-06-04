@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300261021D029DA300D56059 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300261011D029DA300D56059 /* CollectionType.swift */; };
 		300C0AB71D02910500977FC3 /* PreludeSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 300C0AB61D02910500977FC3 /* PreludeSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		300C0ABE1D02910500977FC3 /* PreludeSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300C0AB31D02910400977FC3 /* PreludeSwift.framework */; };
-		300C0AC31D02910500977FC3 /* PreludeSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300C0AC21D02910500977FC3 /* PreludeSwiftTests.swift */; };
+		300C0AC31D02910500977FC3 /* CollectionTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300C0AC21D02910500977FC3 /* CollectionTypeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,11 +24,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		300261011D029DA300D56059 /* CollectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
 		300C0AB31D02910400977FC3 /* PreludeSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PreludeSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		300C0AB61D02910500977FC3 /* PreludeSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreludeSwift.h; sourceTree = "<group>"; };
 		300C0AB81D02910500977FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		300C0ABD1D02910500977FC3 /* PreludeSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PreludeSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		300C0AC21D02910500977FC3 /* PreludeSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreludeSwiftTests.swift; sourceTree = "<group>"; };
+		300C0AC21D02910500977FC3 /* CollectionTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTypeTests.swift; sourceTree = "<group>"; };
 		300C0AC41D02910500977FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 			children = (
 				300C0AB61D02910500977FC3 /* PreludeSwift.h */,
 				300C0AB81D02910500977FC3 /* Info.plist */,
+				300261011D029DA300D56059 /* CollectionType.swift */,
 			);
 			path = PreludeSwift;
 			sourceTree = "<group>";
@@ -80,7 +83,7 @@
 		300C0AC11D02910500977FC3 /* PreludeSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				300C0AC21D02910500977FC3 /* PreludeSwiftTests.swift */,
+				300C0AC21D02910500977FC3 /* CollectionTypeTests.swift */,
 				300C0AC41D02910500977FC3 /* Info.plist */,
 			);
 			path = PreludeSwiftTests;
@@ -196,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				300261021D029DA300D56059 /* CollectionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				300C0AC31D02910500977FC3 /* PreludeSwiftTests.swift in Sources */,
+				300C0AC31D02910500977FC3 /* CollectionTypeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +316,7 @@
 		300C0AC81D02910500977FC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -322,12 +327,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kentakudo.PreludeSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		300C0AC91D02910500977FC3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -380,6 +387,7 @@
 				300C0AC91D02910500977FC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		300C0ACA1D02910500977FC3 /* Build configuration list for PBXNativeTarget "PreludeSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -388,6 +396,7 @@
 				300C0ACC1D02910500977FC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

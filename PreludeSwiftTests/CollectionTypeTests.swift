@@ -12,6 +12,7 @@ import XCTest
 class CollectionTypeTests: XCTestCase {
     
     let testArray  = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    let testArray2 = [1, 2, 3, 4, 5]
     let emptyArray = [Int]()
     let evenArray  = [0, 2, 4, 6, 8]
     let halfEvenArray = [0, 2, 4, 1, 3, 5]
@@ -23,9 +24,15 @@ class CollectionTypeTests: XCTestCase {
     let isEven: Int -> Bool = { $0 % 2 == 0 }
     let isOdd: Int -> Bool = { $0 % 2 == 1 }
     
-    let intToString: Int -> String -> String = { x in
-        return { str in
-            return str + "test"
+    let division: Int -> Double -> Double = { x in
+        return { y in
+            return Double(x) / y
+        }
+    }
+    
+    let summation: Int -> Int -> Int = { x in
+        return { y in
+            return x + y
         }
     }
     
@@ -159,7 +166,7 @@ class CollectionTypeTests: XCTestCase {
     
     func testFoldr() {
         
-        XCTAssertEqual(foldr(intToString)("foldr")(emptyArray), "foldr")
-        XCTAssertEqual(foldr(intToString)("foldr")(testArray), "") // ここから
+        XCTAssertEqual(foldr(division)(1.0)(emptyArray), 1)
+        XCTAssertEqual(foldr(division)(1.0)(testArray2), 1.875)
     }
 }
